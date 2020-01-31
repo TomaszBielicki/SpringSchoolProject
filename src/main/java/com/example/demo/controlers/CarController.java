@@ -22,7 +22,7 @@ public class CarController {
     }
 
     @GetMapping("/getAll")
-    public String getAll(Model model){
+    public String getAll(Model model) {
         List<Car> cars = carService.getAll();
         model.addAttribute("cars", cars);
         return "mycars";
@@ -30,22 +30,19 @@ public class CarController {
 
     @RequestMapping("/getOne")
     @ResponseBody
-    public Optional<Car> getOne(Integer Id){
+    public Optional<Car> getOne(Integer Id) {
         return carService.getOne(Id);
     }
 
     @PostMapping("/addNew")
-    public String addNew(Car car){
+    public String addNew(Car car) {
         carService.addNew(car);
         return "redirect:/cars/getAll";
     }
 
-    @RequestMapping("/update")
-    public String update(Car car){
+    @RequestMapping(value = "/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String update(Car car) {
         carService.update(car);
         return "redirect:/cars/getAll";
-
     }
-
-
 }

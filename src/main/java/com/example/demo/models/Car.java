@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @ToString
+@Setter
 @Entity
 public class Car {
 
